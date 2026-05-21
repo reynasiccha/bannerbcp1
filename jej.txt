@@ -1,0 +1,83 @@
+Actúa como un experto senior en Excel, modelamiento de datos y automatización (Power Query / fórmulas avanzadas / tablas dinámicas).
+Necesito que me generes una plantilla de Excel completamente funcional y dinámica para analizar movimientos de grado salarial mensual de colaboradores durante el año 2026.
+📌 Estructura de los datos (Hoja: DATA)
+El archivo contiene un histórico mensual donde cada fila representa el estado de un colaborador en un mes determinado.
+Columnas relevantes:
+
+F (cod_matricula) → identificador único del colaborador
+M (Grado salarial) → valores como B3, B2, B1
+W (Gerencia) → define si pertenece a “Chats” o “Llamadas”
+Existe una columna de fecha o periodo mensual (ej: mes/año)
+
+Consideraciones:
+
+Un colaborador puede tener múltiples registros (uno por mes)
+Si un colaborador ya no aparece en meses posteriores, significa que ya no está activo → estos casos deben excluirse del análisis de transición
+Solo se trabaja con datos del año 2026
+
+
+🎯 Objetivo del análisis
+Necesito calcular, para cada transición mensual consecutiva (ej: Enero → Febrero, Febrero → Marzo, etc.):
+
+
+Cuántos colaboradores pasan de:
+
+B3 → B2
+B2 → B1
+
+
+
+Segmentado por tipo de servicio según la columna Gerencia (W):
+
+Chats: 'GCIA LINEA SERVICIO DIGITALIDAD Y VENTAS'
+Llamadas:
+
+'GERENCIA INBOUND LÍNEAS SERVICIO Y VENTA'
+'GERENCIA INBOUND LINEAS ESPECIALIZADAS'
+
+
+
+
+
+
+📊 Resultado esperado (Hoja: RESUMEN)
+El resultado debe ser dinámico (automático al agregar más datos) y mostrar algo como:
+Ejemplo:
+Enero → Febrero
+
+B3 → B2 (Chats): XXX
+B3 → B2 (Llamadas): XXX
+B2 → B1 (Chats): XXX
+B2 → B1 (Llamadas): XXX
+
+Febrero → Marzo
+
+B3 → B2 (Chats): XXX
+B3 → B2 (Llamadas): XXX
+B2 → B1 (Chats): XXX
+B2 → B1 (Llamadas): XXX
+
+... y así sucesivamente hasta el último mes disponible en la data.
+
+⚙️ Requerimientos técnicos
+Quiero que la solución:
+
+Sea 100% dinámica (sin intervención manual al agregar nuevas filas)
+Use una de estas opciones (elige la mejor):
+
+Power Query (preferido)
+Fórmulas avanzadas (BUSCARX, LET, FILTRO, etc.)
+Modelo de datos + tabla dinámica
+
+
+Asegures que:
+
+Se comparen correctamente los mismos colaboradores entre meses consecutivos
+Solo se consideren colaboradores presentes en ambos meses
+
+
+Incluya:
+
+Estructura clara de hojas (DATA y RESUMEN)
+Pasos explicados brevemente
+Fórmulas o lógica usada
